@@ -20,12 +20,12 @@ const UserSchema = new mongoose.Schema(
       require: true,
       min: 6,
     },
-    level: {
-      type: Number,
-    },
-    clickCount: {
-      type: Number,
-    },
+    // level: {
+    //   type: Number,
+    // },
+    // clickCount: {
+    //   type: Number,
+    // },
   },
   { timestamps: true }
 );

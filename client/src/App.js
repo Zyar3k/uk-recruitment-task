@@ -11,27 +11,31 @@ import Register from "./components/features/Register/Register";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   // open close modal
-  const [showRegistry, setShowRegistry] = useState(false);
+  const [showRegistry, setShowRegistry] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   return (
-    <div>
-      <Header
-        isLogged={isLogged}
-        setShowRegistry={setShowRegistry}
-        setShowLogin={setShowLogin}
-      />
-      <main className='widthContainer'>
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/achievements' component={Achievements} />
-          <Route path='/shop' component={Shop} />
-        </Switch>
-      </main>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-      {showRegistry && <Register setShowRegistry={setShowRegistry} />}
-    </div>
+    <>
+      <div className='widthContainer'>
+        <Header
+          isLogged={isLogged}
+          setShowRegistry={setShowRegistry}
+          setShowLogin={setShowLogin}
+        />
+        <main>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/achievements' component={Achievements} />
+            <Route path='/shop' component={Shop} />
+          </Switch>
+        </main>
+      </div>
+      <div className={showRegistry || showLogin ? "modal" : null}>
+        {showLogin && <Login setShowLogin={setShowLogin} />}
+        {showRegistry && <Register setShowRegistry={setShowRegistry} />}
+      </div>
+    </>
   );
 }
 

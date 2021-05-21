@@ -14,8 +14,6 @@ router.post("/register", async (req, res) => {
       nickname: req.body.nickname,
       email: req.body.email,
       password: hashedPassword,
-      level: 1,
-      clickCount: 0,
     });
 
     //save user and res
@@ -42,14 +40,12 @@ router.post("/login", async (req, res) => {
     !validPassword && res.status(400).json("Wrong nickname or password");
 
     //send res
-    res
-      .status(200)
-      .json({
-        _id: user._id,
-        nickname: user.nickname,
-        clickCount: user.clickCount,
-        level: user.level,
-      });
+    res.status(200).json({
+      _id: user._id,
+      nickname: user.nickname,
+      clickCount: user.clickCount,
+      level: user.level,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -68,7 +64,7 @@ router.get("/", async (req, res) => {
 // et specific user by nickname
 router.get("/:nickname", async (req, res) => {
   try {
-    res.status(200).json(await User.find({ username: req.params.nickname }));
+    res.status(200).json(await User.find({ nickname: req.params.nickname }));
   } catch (err) {
     res.status(500).json(err);
   }
