@@ -3,7 +3,7 @@ import styles from "./Logout.module.scss";
 const Logout = () => {
   return (
     <div className={styles.logout}>
-      <p>Logout</p>
+      <button>Logout</button>
     </div>
   );
 };

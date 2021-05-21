@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 
+import Logout from "../../features/Logout/Logout";
 import styles from "./Header.module.scss";
 
-const Header = ({ isLogged }) => {
+const Header = ({ isLogged, setShowRegistry, setShowLogin }) => {
   return (
     <header className={styles.header}>
       <div className={`widthContainer ${styles.headerContent}`}>
@@ -22,11 +23,11 @@ const Header = ({ isLogged }) => {
         </ul>
         <div className={styles.userSection}>
           {isLogged ? (
-            <span>Logout</span>
+            <Logout />
           ) : (
             <>
-              <span>Login</span>
-              <span>SignUs!</span>
+              <span onClick={() => setShowLogin(true)}>Login</span>
+              <span onClick={() => setShowRegistry(true)}>SignUp!</span>
             </>
           )}
         </div>
