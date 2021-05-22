@@ -9,9 +9,11 @@ import Login from "./components/features/Login/Login";
 import Register from "./components/features/Register/Register";
 
 function App() {
+  const myStorage = window.localStorage;
   const [isLogged, setIsLogged] = useState(false);
+  const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
   // open close modal
-  const [showRegistry, setShowRegistry] = useState(true);
+  const [showRegistry, setShowRegistry] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   return (
     <>
@@ -20,7 +22,11 @@ function App() {
           isLogged={isLogged}
           setShowRegistry={setShowRegistry}
           setShowLogin={setShowLogin}
+          setIsLogged={setIsLogged}
+          setCurrentUser={setCurrentUser}
+          myStorage={myStorage}
         />
+        {currentUser}
         <main>
           <Switch>
             <Route exact path='/'>
@@ -32,7 +38,14 @@ function App() {
         </main>
       </div>
       <div className={showRegistry || showLogin ? "modal" : null}>
-        {showLogin && <Login setShowLogin={setShowLogin} />}
+        {showLogin && (
+          <Login
+            setShowLogin={setShowLogin}
+            setCurrentUser={setCurrentUser}
+            myStorage={myStorage}
+            setIsLogged={setIsLogged}
+          />
+        )}
         {showRegistry && <Register setShowRegistry={setShowRegistry} />}
       </div>
     </>

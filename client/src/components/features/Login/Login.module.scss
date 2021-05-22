@@ -1,1 +1,44 @@
+@import "../../../styles/global.scss";
 
+.login {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 300px;
+  height: 400px;
+  background-color: grey;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Permanent Marker", cursive;
+    font-size: 20px;
+    img {
+      height: 50px;
+    }
+  }
+
+  .success,
+  .failure {
+    text-align: center;
+  }
+
+  .success {
+    color: green;
+  }
+  .failure {
+    color: red;
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}

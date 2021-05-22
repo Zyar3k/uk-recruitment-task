@@ -3,7 +3,14 @@ import { NavLink } from "react-router-dom";
 import Logout from "../../features/Logout/Logout";
 import styles from "./Header.module.scss";
 
-const Header = ({ isLogged, setShowRegistry, setShowLogin }) => {
+const Header = ({
+  isLogged,
+  setShowRegistry,
+  setShowLogin,
+  setIsLogged,
+  setCurrentUser,
+  myStorage,
+}) => {
   return (
     <header className={styles.header}>
       <div className={`widthContainer ${styles.headerContent}`}>
@@ -23,7 +30,11 @@ const Header = ({ isLogged, setShowRegistry, setShowLogin }) => {
         </ul>
         <div className={styles.userSection}>
           {isLogged ? (
-            <Logout />
+            <Logout
+              setIsLogged={setIsLogged}
+              setCurrentUser={setCurrentUser}
+              myStorage={myStorage}
+            />
           ) : (
             <>
               <span onClick={() => setShowLogin(true)}>Login</span>
