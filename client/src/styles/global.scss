@@ -16,25 +16,26 @@ body {
   margin: 0;
   padding: 0;
   background-color: $background-color;
-  color: $font-color;
+  // color: $font-color;
   line-height: 1.5;
   letter-spacing: 2px;
   font-family: $font-text;
 
   a,
-  a:hover,
   a:visited {
     text-decoration: none;
-    color: $font-color;
+    color: $background-color;
     transition: $transition;
   }
 
   a:hover {
-    color: $font-color-hover;
+    color: white;
+    text-shadow: 0 0 4px white;
   }
 
   a.active {
-    color: $font-color-hover;
+    text-shadow: 0 0 4px white;
+    color: white;
     font-weight: bold;
   }
 

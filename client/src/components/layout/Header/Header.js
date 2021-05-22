@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+import Button from "../Button/Button";
 import Logout from "../../features/Logout/Logout";
 import styles from "./Header.module.scss";
 
@@ -37,8 +38,13 @@ const Header = ({
             />
           ) : (
             <>
-              <span onClick={() => setShowLogin(true)}>Login</span>
-              <span onClick={() => setShowRegistry(true)}>SignUp!</span>
+              <Button onClick={() => setShowLogin(true)}>Login</Button>
+              <p
+                className={styles.signUp}
+                onClick={() => setShowRegistry(true)}
+              >
+                SignUp!
+              </p>
             </>
           )}
         </div>

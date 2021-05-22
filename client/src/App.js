@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      <div className='widthContainer'>
+      <div>
         <Header
           isLogged={isLogged}
           setShowRegistry={setShowRegistry}
@@ -57,7 +57,7 @@ function App() {
           myStorage={myStorage}
         />
         {currentUser}
-        <main>
+        <main className='widthContainer'>
           <Switch>
             <Route exact path='/'>
               <Home

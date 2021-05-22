@@ -8,9 +8,9 @@ const Logout = ({ setIsLogged, setCurrentUser, myStorage }) => {
     myStorage.removeItem("user");
   };
   return (
-    <div className={styles.logout}>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+    <button onClick={handleLogout} className={styles.logout}>
+      Logout
+    </button>
   );
 };
 
