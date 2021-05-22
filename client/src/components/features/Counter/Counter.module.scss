@@ -1,1 +1,18 @@
 @import "../../../styles/global.scss";
+
+.counter {
+  // border: 1px solid black;
+  width: 45%;
+  font-family: $font-fancy;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 40px;
+  color: $choco-color;
+
+  .score,
+  .level {
+    color: red;
+    font-family: $font-text;
+    font-weight: 900;
+  }
+}

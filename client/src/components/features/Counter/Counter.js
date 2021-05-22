@@ -2,10 +2,14 @@ import styles from "./Counter.module.scss";
 
 const Counter = ({ localLevel, localClick, setLocalLevel }) => {
   return (
-    <div className={styles.counter}>
-      <div>Score: {localClick}</div>
-      <div>Level: {localLevel}</div>
-    </div>
+    <section className={styles.counter}>
+      <div>
+        Score: <span className={styles.score}>{localClick}</span>
+      </div>
+      <div>
+        Level: <span className={styles.score}>{localLevel}</span>
+      </div>
+    </section>
   );
 };
 

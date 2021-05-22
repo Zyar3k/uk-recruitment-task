@@ -1,3 +1,4 @@
+import chocoSplash from "../../../assets/chocolate-splash.png";
 import styles from "./Clicker.module.scss";
 
 const Clicker = ({ localClick, setLocalClick, myStorage, isLogged }) => {
@@ -13,9 +14,14 @@ const Clicker = ({ localClick, setLocalClick, myStorage, isLogged }) => {
   };
 
   return (
-    <div className={styles.clicker}>
-      <button onClick={handleClick}>click me</button>
-    </div>
+    <section className={styles.clicker}>
+      <img
+        className={styles.splash}
+        onClick={handleClick}
+        src={chocoSplash}
+        alt='chocolate-splash'
+      />
+    </section>
   );
 };
 
