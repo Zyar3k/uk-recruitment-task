@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
-    nickname: {
+    username: {
       type: String,
       require: true,
       min: 3,
@@ -20,12 +20,6 @@ const UserSchema = new mongoose.Schema(
       require: true,
       min: 6,
     },
-    // level: {
-    //   type: Number,
-    // },
-    // clickCount: {
-    //   type: Number,
-    // },
   },
   { timestamps: true }
 );
