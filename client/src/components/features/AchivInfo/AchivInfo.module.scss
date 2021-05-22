@@ -1,0 +1,59 @@
+@import "../../../styles/global.scss";
+
+.achivInfo {
+  display: none;
+  position: absolute;
+  width: 400px;
+  bottom: 5%;
+  left: 5%;
+  color: $background-color;
+  border: 4px solid $choco-color;
+
+  .achivWrapper {
+    list-style: none;
+    padding: 4px;
+    height: 100%;
+    text-align: center;
+
+    .title {
+      background-color: $choco-color;
+      margin: 0;
+      padding: 10px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      .awardIcon {
+        color: gold;
+        font-size: 40px;
+        text-shadow: 2px 2px 4px goldenrod;
+      }
+    }
+
+    .achiv {
+      p {
+        padding: 0;
+        background-color: $choco-color;
+        padding: 10px;
+        margin: 0;
+      }
+
+      h3 {
+        background-color: $choco-color;
+        padding: 10px;
+        margin: 0;
+
+        .iconClick {
+          margin: 0 6px;
+          font-size: 30px;
+          text-shadow: 2px 2px 4px goldenrod;
+          color: gold;
+        }
+      }
+    }
+  }
+
+  &.show {
+    display: block;
+  }
+}

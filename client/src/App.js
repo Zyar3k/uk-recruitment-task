@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { data } from "./db/achievments";
 
 import Header from "./components/layout/Header/Header";
 import Home from "./components/views/Home/Home";
@@ -12,6 +13,7 @@ function App() {
   const myStorage = window.localStorage;
   const [isLogged, setIsLogged] = useState(false);
   const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
+  const [achievements, setAchievements] = useState([]);
   // open close modal
   const [showRegistry, setShowRegistry] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -27,6 +29,7 @@ function App() {
     if (levelLocal === null) setLocalLevel(1);
     myStorage.setItem("localClick", localClick);
     myStorage.setItem("localLevel", localLevel);
+    setAchievements(data);
   }, [localClick, myStorage, localLevel]);
 
   // set level
@@ -67,9 +70,15 @@ function App() {
                 setLocalLevel={setLocalLevel}
                 myStorage={myStorage}
                 isLogged={isLogged}
+                achievements={achievements}
               />
             </Route>
-            <Route path='/achievements' component={Achievements} />
+            <Route path='/achievements'>
+              <Achievements
+                localClick={localClick}
+                achievements={achievements}
+              />
+            </Route>
             <Route path='/shop' component={Shop} />
           </Switch>
         </main>

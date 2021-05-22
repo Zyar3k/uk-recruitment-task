@@ -1,5 +1,6 @@
 import Clicker from "../../features/Clicker/Clicker";
 import Counter from "../../features/Counter/Counter";
+import AchivInfo from "../../features/AchivInfo/AchivInfo";
 
 import styles from "./Home.module.scss";
 
@@ -10,9 +11,11 @@ const Home = ({
   isLogged,
   localLevel,
   setLocalLevel,
+  achievements,
 }) => {
   return (
     <div className={styles.home}>
+      <AchivInfo localClick={localClick} achievements={achievements} />
       <Clicker
         localClick={localClick}
         setLocalClick={setLocalClick}
