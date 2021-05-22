@@ -8,7 +8,6 @@ import styles from "./Login.module.scss";
 const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
   const [error, setError] = useState(false);
   const usernameRef = useRef();
-
   const passwordRef = useRef();
 
   const handleSubmit = async (event) => {

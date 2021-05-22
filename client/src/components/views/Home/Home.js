@@ -19,8 +19,11 @@ const Home = ({
         myStorage={myStorage}
         isLogged={isLogged}
       />
-      <Counter localClick={localClick} localLevel={localLevel} />
-      <h1>home</h1>
+      <Counter
+        localClick={localClick}
+        setLocalLevel={setLocalLevel}
+        localLevel={localLevel}
+      />
     </div>
   );
 };

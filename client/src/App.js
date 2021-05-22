@@ -19,8 +19,8 @@ function App() {
   const [localClick, setLocalClick] = useState(myStorage.getItem("localClick"));
   const [localLevel, setLocalLevel] = useState(myStorage.getItem("localLevel"));
 
+  // set start localstorage
   useEffect(() => {
-    // set basic localstorage
     let countLocal = JSON.parse(localClick);
     let levelLocal = JSON.parse(localLevel);
     if (countLocal === null) setLocalClick(0);
@@ -28,6 +28,22 @@ function App() {
     myStorage.setItem("localClick", localClick);
     myStorage.setItem("localLevel", localLevel);
   }, [localClick, myStorage, localLevel]);
+
+  // set level
+  useEffect(() => {
+    const step = 10;
+    if (localClick === step) {
+      setLocalLevel(2);
+    } else if (localClick === step * 2) {
+      setLocalLevel(3);
+    } else if (localClick === step * 4) {
+      setLocalLevel(4);
+    } else if (localClick === step * 8) {
+      setLocalLevel(5);
+    } else if (localClick === step * 16) {
+      setLocalLevel(6);
+    }
+  }, [localClick, localLevel, setLocalLevel]);
 
   return (
     <>
