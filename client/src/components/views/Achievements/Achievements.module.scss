@@ -1,1 +1,71 @@
 @import "../../../styles/global.scss";
+
+.achievements {
+  border: 1px solid black;
+  .title {
+    text-align: center;
+    font-family: $font-fancy;
+    font-size: 40px;
+  }
+  .achWrapper {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+
+    .achItem {
+      margin: 14px auto;
+      background-color: $choco-color;
+      color: $background-color;
+      width: 90%;
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      opacity: 0.8;
+      filter: grayscale(0.2);
+      // justify-content: space-between;
+
+      &.achieved {
+        opacity: 1;
+        filter: grayscale(0);
+        // background-color: red;
+
+        .iconWrapper .iconAward {
+          font-size: 40px;
+          color: gold;
+          text-shadow: 2px 2px 4px goldenrod;
+        }
+      }
+
+      p {
+        // background-color: red;
+        padding: 0 20px;
+        flex: 3;
+      }
+      h3 {
+        // background-color: blue;
+        flex: 2;
+
+        .iconClick {
+          margin-left: 10px;
+        }
+      }
+
+      .iconWrapper {
+        // background-color: green;
+        flex: 0.5;
+        padding: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .iconAward {
+          font-size: 40px;
+          color: grey;
+        }
+      }
+    }
+  }
+}

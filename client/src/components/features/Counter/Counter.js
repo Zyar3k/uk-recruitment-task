@@ -1,6 +1,6 @@
 import styles from "./Counter.module.scss";
 
-const Counter = ({ localLevel, localClick, setLocalLevel }) => {
+const Counter = ({ localLevel, localClick }) => {
   return (
     <section className={styles.counter}>
       <div>
