@@ -16,7 +16,7 @@ function App() {
   const [achievements, setAchievements] = useState([]);
   // open close modal
   const [showRegistry, setShowRegistry] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   // localcount
   const [localClick, setLocalClick] = useState(myStorage.getItem("localClick"));
   const [localLevel, setLocalLevel] = useState(myStorage.getItem("localLevel"));

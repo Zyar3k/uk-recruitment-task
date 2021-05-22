@@ -36,7 +36,7 @@ const Register = ({ setShowRegistry }) => {
         Splash Clicker
       </p>
       <form onSubmit={handleSubmit}>
-        <input autoFocus placeholder='username' ref={usernameRef} />
+        <input autoFocus placeholder='nickname' ref={usernameRef} />
         <input type='email' placeholder='email' ref={emailRef} />
         <input
           type='password'
@@ -50,9 +50,10 @@ const Register = ({ setShowRegistry }) => {
         <p className={styles.success}>Successfull. You can login now!</p>
       )}
       {error && <p className={styles.failure}>Something went wrong!</p>}
-      <button className={styles.close} onClick={() => setShowRegistry(false)}>
-        x
-      </button>
+      <i
+        className={`${styles.close} far fa-times-circle`}
+        onClick={() => setShowRegistry(false)}
+      ></i>
     </div>
   );
 };

@@ -28,19 +28,6 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
     } catch (err) {
       setError(true);
     }
-
-    // try {
-    //   const res = await axios.post("/users/login", user);
-    //
-    //   myStorage.setItem("user", res.data.username);
-    //   setCurrentUser(res.data.username);
-    //   setIsLogged(true);
-    //   setShowLogin(false);
-    //   setError(false);
-    // } catch (err) {
-    //   console.log(err);
-    //   setError(true);
-    // }
   };
 
   return (
@@ -50,7 +37,7 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
         Splash Clicker
       </p>
       <form onSubmit={handleSubmit}>
-        <input autoFocus placeholder='username' ref={usernameRef} />
+        <input autoFocus placeholder='nickname' ref={usernameRef} />
         <input
           type='password'
           min='6'
@@ -60,9 +47,13 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
         <button type='submit'>Login</button>
       </form>
       {error && <p className={styles.failure}>Something went wrong!</p>}
-      <button className={styles.close} onClick={() => setShowLogin(false)}>
+      {/* <button className={styles.close} onClick={() => setShowLogin(false)}>
         x
-      </button>
+      </button> */}
+      <i
+        className={`${styles.close} far fa-times-circle`}
+        onClick={() => setShowLogin(false)}
+      ></i>
     </div>
   );
 };
