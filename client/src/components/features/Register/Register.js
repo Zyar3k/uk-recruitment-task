@@ -8,14 +8,14 @@ import styles from "./Register.module.scss";
 const Register = ({ setShowRegistry }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const nicknameRef = useRef();
+  const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const newUser = {
-      nickname: nicknameRef.current.value,
+      username: usernameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
@@ -36,7 +36,7 @@ const Register = ({ setShowRegistry }) => {
         Splash Clicker
       </p>
       <form onSubmit={handleSubmit}>
-        <input autoFocus placeholder='nickname' ref={nicknameRef} />
+        <input autoFocus placeholder='username' ref={usernameRef} />
         <input type='email' placeholder='email' ref={emailRef} />
         <input
           type='password'

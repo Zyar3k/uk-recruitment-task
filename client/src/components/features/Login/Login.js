@@ -19,16 +19,28 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
 
     try {
       const res = await axios.post("/users/login", user);
+      setCurrentUser(res.data.username);
       console.log(res);
       myStorage.setItem("user", res.data.username);
-      setCurrentUser(res.data.username);
-      setIsLogged(true);
       setShowLogin(false);
+      setIsLogged(true);
       setError(false);
     } catch (err) {
-      console.log(err);
       setError(true);
     }
+
+    // try {
+    //   const res = await axios.post("/users/login", user);
+    //
+    //   myStorage.setItem("user", res.data.username);
+    //   setCurrentUser(res.data.username);
+    //   setIsLogged(true);
+    //   setShowLogin(false);
+    //   setError(false);
+    // } catch (err) {
+    //   console.log(err);
+    //   setError(true);
+    // }
   };
 
   return (
