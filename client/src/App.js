@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Header from "./components/layout/Header/Header";
@@ -15,6 +15,20 @@ function App() {
   // open close modal
   const [showRegistry, setShowRegistry] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  // localcount
+  const [localClick, setLocalClick] = useState(myStorage.getItem("localClick"));
+  const [localLevel, setLocalLevel] = useState(myStorage.getItem("localLevel"));
+
+  useEffect(() => {
+    // set basic localstorage
+    let countLocal = JSON.parse(localClick);
+    let levelLocal = JSON.parse(localLevel);
+    if (countLocal === null) setLocalClick(0);
+    if (levelLocal === null) setLocalLevel(1);
+    myStorage.setItem("localClick", localClick);
+    myStorage.setItem("localLevel", localLevel);
+  }, [localClick, myStorage, localLevel]);
+
   return (
     <>
       <div className='widthContainer'>
@@ -30,7 +44,14 @@ function App() {
         <main>
           <Switch>
             <Route exact path='/'>
-              <Home />
+              <Home
+                localClick={localClick}
+                setLocalClick={setLocalClick}
+                localLevel={localLevel}
+                setLocalLevel={setLocalLevel}
+                myStorage={myStorage}
+                isLogged={isLogged}
+              />
             </Route>
             <Route path='/achievements' component={Achievements} />
             <Route path='/shop' component={Shop} />
