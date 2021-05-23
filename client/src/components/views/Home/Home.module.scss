@@ -8,3 +8,10 @@
   padding: 10px;
   position: relative;
 }
+
+/********************************************************/
+@media (max-width: $tablet-size) {
+  .home {
+    height: calc(100vh - 80px);
+  }
+}

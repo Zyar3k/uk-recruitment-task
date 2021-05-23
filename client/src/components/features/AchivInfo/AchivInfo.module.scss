@@ -58,3 +58,72 @@
     display: block;
   }
 }
+
+/********************************************************/
+@media (max-width: $tablet-size) {
+  .achivInfo {
+    top: unset;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+
+    .achivWrapper {
+      .title {
+        font-size: 20px;
+        padding: 6px 0;
+
+        .awardIcon {
+          font-size: 20px;
+        }
+      }
+
+      .achiv {
+        p {
+          padding: 6px 0;
+        }
+
+        h3 {
+          padding: 6px 0;
+
+          .iconClick {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/********************************************************/
+
+@media (max-width: $phone-size) {
+  .achivInfo {
+    border: none;
+    width: 98%;
+
+    .achivWrapper {
+      padding: 0;
+
+      .title {
+        font-size: 18px;
+        padding: 6px 0;
+      }
+
+      .achiv {
+        p {
+          font-size: 14px;
+          padding: 6px;
+        }
+
+        h3 {
+          font-size: 14px;
+
+          .iconClick {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
