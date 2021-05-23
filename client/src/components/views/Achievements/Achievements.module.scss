@@ -23,12 +23,10 @@
       align-items: center;
       opacity: 0.8;
       filter: grayscale(0.2);
-      // justify-content: space-between;
 
       &.achieved {
         opacity: 1;
         filter: grayscale(0);
-        // background-color: red;
 
         .iconWrapper .iconAward {
           font-size: 40px;
@@ -38,12 +36,10 @@
       }
 
       p {
-        // background-color: red;
         padding: 0 20px;
         flex: 3;
       }
       h3 {
-        // background-color: blue;
         flex: 2;
 
         .iconClick {
@@ -52,7 +48,6 @@
       }
 
       .iconWrapper {
-        // background-color: green;
         flex: 0.5;
         padding: 10px;
 
@@ -63,6 +58,56 @@
         .iconAward {
           font-size: 40px;
           color: grey;
+        }
+      }
+    }
+  }
+}
+
+/********************************************************/
+
+@media (max-width: $tablet-size) {
+}
+
+/********************************************************/
+
+@media (max-width: $device-size) {
+  .achievements {
+    .title {
+      font-size: 30px;
+    }
+    .achWrapper {
+      width: 98%;
+    }
+  }
+}
+
+/********************************************************/
+
+@media (max-width: $sm-phone-size) {
+  .achievements {
+    .title {
+      font-size: 20px;
+    }
+    .achWrapper {
+      width: 98%;
+
+      .achItem {
+        flex-wrap: wrap;
+        p,
+        h3,
+        .iconWrapper {
+          flex: unset;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        p {
+          width: 100%;
+        }
+        h3,
+        .iconWrapper {
+          width: 50%;
         }
       }
     }
