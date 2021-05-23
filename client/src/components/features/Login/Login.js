@@ -82,9 +82,6 @@ const Login = ({
         <button type='submit'>Login</button>
       </form>
       {error && <p className={styles.failure}>Something went wrong!</p>}
-      {/* <button className={styles.close} onClick={() => setShowLogin(false)}>
-        x
-      </button> */}
       <i
         className={`${styles.close} far fa-times-circle`}
         onClick={() => setShowLogin(false)}

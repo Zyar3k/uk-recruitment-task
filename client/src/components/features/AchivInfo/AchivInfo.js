@@ -5,7 +5,7 @@ import styles from "./AchivInfo.module.scss";
 const AchivInfo = ({ localClick, achievements, isLogged, userClick }) => {
   const [achivLevel, setAchivLevel] = useState(0);
   const [achivState, setAchivState] = useState(0);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   let timeout = 10000;
 
   let click;
