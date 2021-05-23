@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import Button from "../Button/Button";
@@ -17,20 +18,50 @@ const Header = ({
   userLevel,
   setUserLevel,
 }) => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
   return (
     <header className={styles.header}>
       <div className={`widthContainer ${styles.headerContent}`}>
-        <NavLink className={`${styles.logo}`} exact to='/'>
+        <NavLink
+          onClick={closeMobileMenu}
+          className={`${styles.logo}`}
+          exact
+          to='/'
+        >
           Splash Clicker
         </NavLink>
-        <ul className={styles.navlinksWrapper}>
-          <NavLink exact to='/' className={styles.navLink}>
+        <ul
+          className={
+            click
+              ? `${styles.navlinksWrapper} ${styles.active}`
+              : styles.navlinksWrapper
+          }
+        >
+          <NavLink
+            onClick={closeMobileMenu}
+            exact
+            to='/'
+            className={styles.navLink}
+          >
             Home
           </NavLink>
-          <NavLink exact to='/achievements' className={styles.navLink}>
+          <NavLink
+            onClick={closeMobileMenu}
+            exact
+            to='/achievements'
+            className={styles.navLink}
+          >
             Achievements
           </NavLink>
-          <NavLink exact to='/shop' className={styles.navLink}>
+          <NavLink
+            onClick={closeMobileMenu}
+            exact
+            to='/shop'
+            className={styles.navLink}
+          >
             Shop
           </NavLink>
         </ul>
@@ -57,6 +88,16 @@ const Header = ({
               </p>
             </>
           )}
+        </div>
+        <div className={styles.iconsWrapper}>
+          <i
+            onClick={handleClick}
+            className={
+              click
+                ? `${styles.menuIcon} fas fa-times`
+                : `${styles.menuIcon} fas fa-bars`
+            }
+          ></i>
         </div>
       </div>
     </header>

@@ -100,6 +100,7 @@ function App() {
             <Route exact path='/'>
               <Home
                 isLogged={isLogged}
+                currentUser={currentUser}
                 myStorage={myStorage}
                 achievements={achievements}
                 localClick={localClick}

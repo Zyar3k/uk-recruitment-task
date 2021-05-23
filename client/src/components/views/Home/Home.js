@@ -9,6 +9,7 @@ const Home = ({
   setLocalClick,
   myStorage,
   isLogged,
+  currentUser,
   localLevel,
   achievements,
   userClick,
@@ -37,6 +38,7 @@ const Home = ({
         localLevel={localLevel}
         userClick={userClick}
         userLevel={userLevel}
+        currentUser={currentUser}
       />
     </div>
   );

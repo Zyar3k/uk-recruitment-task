@@ -4,10 +4,24 @@
   width: 45%;
   font-family: $font-fancy;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+
   font-size: 40px;
   color: $choco-color;
 
+  text-align: center;
+
+  div {
+    width: 50%;
+  }
+
+  h4 {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+  }
   .score,
   .level {
     color: red;
