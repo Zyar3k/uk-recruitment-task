@@ -48,17 +48,17 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// // get all useers
-// router.get("/", async (req, res) => {
-//   try {
-//     const users = await User.find();
-//     res.status(200).json(users);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// get all useers
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-// // et specific user by username
+// et specific user by username
 router.get("/:username", async (req, res) => {
   try {
     res.status(200).json(await User.find({ username: req.params.username }));

@@ -1,42 +1,42 @@
 export const data = [
   {
     no: 1,
-    clicks: 50,
+    clicks: 10,
   },
   {
     no: 2,
-    clicks: 60,
+    clicks: 30,
   },
   {
     no: 3,
-    clicks: 70,
+    clicks: 50,
   },
   {
     no: 4,
-    clicks: 80,
+    clicks: 100,
   },
   {
     no: 5,
-    clicks: 500,
+    clicks: 200,
   },
   {
     no: 6,
-    clicks: 600,
+    clicks: 300,
   },
   {
     no: 7,
-    clicks: 700,
+    clicks: 600,
   },
   {
     no: 8,
-    clicks: 870,
+    clicks: 1200,
   },
   {
     no: 9,
-    clicks: 900,
+    clicks: 2400,
   },
   {
     no: 10,
-    clicks: 1000,
+    clicks: 5000,
   },
 ];

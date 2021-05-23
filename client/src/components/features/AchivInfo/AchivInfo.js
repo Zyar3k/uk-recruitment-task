@@ -26,6 +26,7 @@ const AchivInfo = ({ localClick, achievements, isLogged, userClick }) => {
       setTimeout(() => {
         setShow(false);
       }, timeout);
+      return null;
     });
   }, [click, achievements, timeout]);
 

@@ -22,9 +22,17 @@ const Register = ({ setShowRegistry }) => {
     };
 
     try {
-      await axios.post("/users/register", newUser);
-      setError(false);
-      setSuccess(true);
+      if (
+        newUser.username === "" ||
+        newUser.email === "" ||
+        newUser.password === ""
+      ) {
+        setError(true);
+      } else {
+        await axios.post("/users/register", newUser);
+        setError(false);
+        setSuccess(true);
+      }
     } catch (err) {
       setError(true);
     }
