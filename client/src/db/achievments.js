@@ -1,19 +1,19 @@
 export const data = [
   {
     no: 1,
-    clicks: 100,
+    clicks: 50,
   },
   {
     no: 2,
-    clicks: 200,
+    clicks: 60,
   },
   {
     no: 3,
-    clicks: 300,
+    clicks: 70,
   },
   {
     no: 4,
-    clicks: 400,
+    clicks: 80,
   },
   {
     no: 5,

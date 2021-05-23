@@ -2,17 +2,24 @@ import { useEffect, useState } from "react";
 
 import styles from "./AchivInfo.module.scss";
 
-const AchivInfo = ({ localClick, achievements }) => {
+const AchivInfo = ({ localClick, achievements, isLogged, userClick }) => {
   const [achivLevel, setAchivLevel] = useState(0);
   const [achivState, setAchivState] = useState(0);
   const [show, setShow] = useState(false);
   let timeout = 10000;
 
+  let click;
+
+  if (isLogged) {
+    click = userClick;
+  } else {
+    click = localClick;
+  }
+
   useEffect(() => {
     achievements.map((item) => {
-      if (localClick === item.clicks) setShow(true);
-      if (localClick === item.clicks) {
-        console.log("level", item.clicks, item.no);
+      if (click === item.clicks) setShow(true);
+      if (click === item.clicks) {
         setAchivLevel(item.no);
         setAchivState(item.clicks);
       }
@@ -20,7 +27,7 @@ const AchivInfo = ({ localClick, achievements }) => {
         setShow(false);
       }, timeout);
     });
-  }, [localClick, achievements, timeout]);
+  }, [click, achievements, timeout]);
 
   return (
     <section

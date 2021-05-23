@@ -1,11 +1,22 @@
 import axios from "axios";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import logo from "../../../assets/chocolate-splash.png";
 import styles from "./Login.module.scss";
 
-const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
+const Login = ({
+  setShowLogin,
+  setCurrentUser,
+  myStorage,
+  setIsLogged,
+  currentUser,
+  userClick,
+  setUserClick,
+  setUserId,
+  userLevel,
+  setUserLevel,
+}) => {
   const [error, setError] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -20,7 +31,6 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
     try {
       const res = await axios.post("/users/login", user);
       setCurrentUser(res.data.username);
-      console.log(res);
       myStorage.setItem("user", res.data.username);
       setShowLogin(false);
       setIsLogged(true);
@@ -29,6 +39,31 @@ const Login = ({ setShowLogin, setCurrentUser, myStorage, setIsLogged }) => {
       setError(true);
     }
   };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        await axios.get(`/users/${currentUser}`).then((res) => {
+          setUserClick(res.data[0].clickCount);
+          setUserLevel(res.data[0].level);
+          setUserId(res.data[0]._id);
+          myStorage.setItem("userClick", userClick);
+          myStorage.setItem("userLevel", userLevel);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, [
+    currentUser,
+    myStorage,
+    setUserClick,
+    userClick,
+    setUserId,
+    setUserLevel,
+    userLevel,
+  ]);
 
   return (
     <div className={styles.login}>

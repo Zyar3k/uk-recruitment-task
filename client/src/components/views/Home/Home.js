@@ -10,19 +10,34 @@ const Home = ({
   myStorage,
   isLogged,
   localLevel,
-  setLocalLevel,
   achievements,
+  userClick,
+  setUserClick,
+  userLevel,
 }) => {
   return (
     <div className={styles.home}>
-      <AchivInfo localClick={localClick} achievements={achievements} />
+      <AchivInfo
+        isLogged={isLogged}
+        userClick={userClick}
+        localClick={localClick}
+        achievements={achievements}
+      />
       <Clicker
         localClick={localClick}
         setLocalClick={setLocalClick}
         myStorage={myStorage}
         isLogged={isLogged}
+        userClick={userClick}
+        setUserClick={setUserClick}
       />
-      <Counter localClick={localClick} localLevel={localLevel} />
+      <Counter
+        isLogged={isLogged}
+        localClick={localClick}
+        localLevel={localLevel}
+        userClick={userClick}
+        userLevel={userLevel}
+      />
     </div>
   );
 };

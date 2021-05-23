@@ -1,13 +1,32 @@
 import styles from "./Counter.module.scss";
 
-const Counter = ({ localLevel, localClick }) => {
+const Counter = ({
+  isLogged,
+  localClick,
+  localLevel,
+  userClick,
+  userLevel,
+}) => {
+  let click;
+  let level;
+
+  if (isLogged) {
+    click = userClick;
+    level = userLevel;
+  } else {
+    click = localClick;
+    level = localLevel;
+  }
+
   return (
     <section className={styles.counter}>
       <div>
-        Score: <span className={styles.score}>{localClick}</span>
+        Score:
+        <span className={styles.score}>{click}</span>
       </div>
       <div>
-        Level: <span className={styles.score}>{localLevel}</span>
+        Level:
+        <span className={styles.score}>{level}</span>
       </div>
     </section>
   );

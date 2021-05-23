@@ -11,6 +11,11 @@ const Header = ({
   setIsLogged,
   setCurrentUser,
   myStorage,
+  setUserClick,
+  userClick,
+  userId,
+  userLevel,
+  setUserLevel,
 }) => {
   return (
     <header className={styles.header}>
@@ -35,6 +40,11 @@ const Header = ({
               setIsLogged={setIsLogged}
               setCurrentUser={setCurrentUser}
               myStorage={myStorage}
+              setUserClick={setUserClick}
+              userClick={userClick}
+              userLevel={userLevel}
+              setUserLevel={setUserLevel}
+              userId={userId}
             />
           ) : (
             <>

@@ -14,6 +14,7 @@ const Register = ({ setShowRegistry }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const newUser = {
       username: usernameRef.current.value,
       email: emailRef.current.value,

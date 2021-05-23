@@ -14,6 +14,8 @@ router.post("/register", async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
+      level: 1,
+      clickCount: 0,
     });
 
     //save user and respond
@@ -65,19 +67,19 @@ router.get("/:username", async (req, res) => {
   }
 });
 
-// // updated click/level User _ID from mongo
-// router.patch("/:userId", async (req, res) => {
-//   try {
-//     const updatedUser = await User.updateOne(
-//       { _id: req.params.userId },
-//       {
-//         $set: { clickCount: req.body.clickCount, level: req.body.level },
-//       }
-//     );
-//     res.json(updatedUser);
-//   } catch (error) {
-//     res.json({ message: error });
-//   }
-// });
+// updated click/level User _ID from mongo
+router.patch("/:userId", async (req, res) => {
+  try {
+    const updatedUser = await User.updateOne(
+      { _id: req.params.userId },
+      {
+        $set: { clickCount: req.body.clickCount, level: req.body.level },
+      }
+    );
+    res.json(updatedUser);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
 
 module.exports = router;

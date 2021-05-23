@@ -1,10 +1,21 @@
 import chocoSplash from "../../../assets/chocolate-splash.png";
 import styles from "./Clicker.module.scss";
 
-const Clicker = ({ localClick, setLocalClick, myStorage, isLogged }) => {
+const Clicker = ({
+  localClick,
+  setLocalClick,
+  myStorage,
+  isLogged,
+  userClick,
+  setUserClick,
+}) => {
   const handleClick = () => {
     let countLocal = JSON.parse(localClick);
     if (isLogged) {
+      let countUser = JSON.parse(userClick);
+      setUserClick(countUser);
+      setUserClick((curr) => curr + 1);
+      myStorage.setItem("userClick", userClick);
     } else {
       if (countLocal === null) setLocalClick(0);
       setLocalClick(countLocal);

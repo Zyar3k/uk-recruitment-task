@@ -1,6 +1,14 @@
 import styles from "./Achievements.module.scss";
 
-const Achievements = ({ localClick, achievements }) => {
+const Achievements = ({ localClick, achievements, isLogged, userClick }) => {
+  let click;
+
+  if (isLogged) {
+    click = userClick;
+  } else {
+    click = localClick;
+  }
+
   return (
     <div className={styles.achievements}>
       <h1 className={styles.title}>Yours achievements</h1>
@@ -9,7 +17,7 @@ const Achievements = ({ localClick, achievements }) => {
           <li
             key={index}
             className={
-              localClick >= item.clicks
+              click >= item.clicks
                 ? `${styles.achItem} ${styles.achieved}`
                 : `${styles.achItem}`
             }
