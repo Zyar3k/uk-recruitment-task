@@ -30,3 +30,37 @@
     margin-left: 10px;
   }
 }
+
+/********************************************************/
+
+@media (max-width: 1024px) {
+  .counter {
+    width: 80%;
+  }
+}
+@media (max-width: $tablet-size) {
+}
+
+/********************************************************/
+
+@media (max-width: $device-size) {
+  .counter {
+    width: 90%;
+  }
+}
+
+/********************************************************/
+
+@media (max-width: $phone-size) {
+  .counter {
+    font-size: 30px;
+  }
+}
+
+/********************************************************/
+
+@media (max-width: $sm-phone-size) {
+  .counter {
+    font-size: 26px;
+  }
+}
