@@ -1,12 +1,19 @@
+import request from "../../../helpers/request";
 import styles from "./Counter.module.scss";
 
 const Counter = ({
   isLogged,
+  myStorage,
   currentUser,
   localClick,
+  setLocalClick,
   localLevel,
+  setLocalLevel,
   userClick,
+  setUserClick,
   userLevel,
+  setUserLevel,
+  userId,
 }) => {
   let click;
   let level;
@@ -19,6 +26,31 @@ const Counter = ({
     level = localLevel;
   }
 
+
+  const handleClick = async () => {
+
+    if (!currentUser) {
+      setLocalClick(0);
+      setLocalLevel(1);
+      myStorage.setItem("localClick", localClick);
+      myStorage.setItem("localLevel", localLevel);
+    } else {
+      const updateUser = {
+        level: 1,
+        clickCount: 0,
+      };
+      try {
+        await request.patch(`/users/${userId}`, updateUser);
+      } catch (err) {
+        console.log(err);
+      }
+      setUserClick(0);
+      setUserLevel(1);
+      myStorage.setItem("userClick", userClick);
+      myStorage.setItem("userLevel", userLevel);
+    }
+  };
+
   return (
     <section className={styles.counter}>
       <div>
@@ -29,11 +61,19 @@ const Counter = ({
         Level:
         <span className={styles.score}>{level}</span>
       </div>
+
       {currentUser && (
         <h4>
           Hello, <span className={styles.currUser}>{currentUser}</span>!
         </h4>
       )}
+      <div className={styles.resetWrapper}>
+        Reset Counting:
+        <i
+          onClick={() => handleClick()}
+          className={`${styles.iconOff} fas fa-power-off`}
+        ></i>
+      </div>
     </section>
   );
 };

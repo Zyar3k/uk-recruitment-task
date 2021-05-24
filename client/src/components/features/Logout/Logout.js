@@ -31,6 +31,7 @@ const Logout = ({
     myStorage.removeItem("userClick");
     myStorage.removeItem("userLevel");
   };
+
   return (
     <button onClick={handleLogout} className={styles.logout}>
       Logout

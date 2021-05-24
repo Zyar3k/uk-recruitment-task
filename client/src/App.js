@@ -98,6 +98,7 @@ function App() {
           <Switch>
             <Route exact path='/'>
               <Home
+                userId={userId}
                 isLogged={isLogged}
                 currentUser={currentUser}
                 myStorage={myStorage}
@@ -105,9 +106,11 @@ function App() {
                 localClick={localClick}
                 setLocalClick={setLocalClick}
                 localLevel={localLevel}
+                setLocalLevel={setLocalLevel}
                 userClick={userClick}
                 setUserClick={setUserClick}
                 userLevel={userLevel}
+                setUserLevel={setUserLevel}
               />
             </Route>
             <Route path='/achievements'>

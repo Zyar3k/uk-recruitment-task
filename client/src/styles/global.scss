@@ -40,6 +40,10 @@ body {
     font-weight: bold;
   }
 
+  a.active.logo {
+    text-shadow: none;
+  }
+
   form {
     display: flex;
     flex-direction: column;

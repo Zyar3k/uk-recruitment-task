@@ -24,8 +24,6 @@
 - bcrypt
 - dotenv
 
-> [Server](https://server-uk.herokuapp.com/api/)
-
 ### Installation
 
 To run app

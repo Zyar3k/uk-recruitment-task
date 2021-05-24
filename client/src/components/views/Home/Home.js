@@ -11,10 +11,13 @@ const Home = ({
   isLogged,
   currentUser,
   localLevel,
-  achievements,
+  setLocalLevel,
   userClick,
   setUserClick,
   userLevel,
+  setUserLevel,
+  achievements,
+  userId,
 }) => {
   return (
     <div className={styles.home}>
@@ -34,11 +37,17 @@ const Home = ({
       />
       <Counter
         isLogged={isLogged}
+        userId={userId}
         currentUser={currentUser}
         localClick={localClick}
+        setLocalClick={setLocalClick}
         localLevel={localLevel}
+        setLocalLevel={setLocalLevel}
         userClick={userClick}
+        setUserClick={setUserClick}
         userLevel={userLevel}
+        setUserLevel={setUserLevel}
+        myStorage={myStorage}
       />
     </div>
   );

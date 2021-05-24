@@ -27,7 +27,7 @@ const Header = ({
       <div className={`widthContainer ${styles.headerContent}`}>
         <NavLink
           onClick={closeMobileMenu}
-          className={`${styles.logo}`}
+          className={`${styles.logo} logo`}
           exact
           to='/'
         >

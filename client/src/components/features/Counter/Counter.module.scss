@@ -28,6 +28,27 @@
     font-weight: 900;
     margin-left: 10px;
   }
+
+  .resetWrapper {
+    margin-top: 10px;
+    font-family: $font-text;
+    font-size: 18px;
+    width: 100%;
+    // border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .iconOff {
+      margin-left: 10px;
+      cursor: pointer;
+      color: red;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
 
 /********************************************************/
