@@ -7,14 +7,14 @@ import styles from "./Header.module.scss";
 
 const Header = ({
   isLogged,
+  userId,
   setShowRegistry,
   setShowLogin,
   setIsLogged,
   setCurrentUser,
   myStorage,
-  setUserClick,
   userClick,
-  userId,
+  setUserClick,
   userLevel,
   setUserLevel,
 }) => {

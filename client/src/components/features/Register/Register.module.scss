@@ -23,6 +23,19 @@
     }
   }
 
+  form {
+    span {
+      text-align: center;
+      font-size: 14px;
+      color: red;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+
   .success,
   .failure {
     text-align: center;

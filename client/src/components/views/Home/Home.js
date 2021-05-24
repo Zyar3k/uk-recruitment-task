@@ -25,20 +25,20 @@ const Home = ({
         achievements={achievements}
       />
       <Clicker
-        localClick={localClick}
-        setLocalClick={setLocalClick}
         myStorage={myStorage}
         isLogged={isLogged}
+        localClick={localClick}
+        setLocalClick={setLocalClick}
         userClick={userClick}
         setUserClick={setUserClick}
       />
       <Counter
         isLogged={isLogged}
+        currentUser={currentUser}
         localClick={localClick}
         localLevel={localLevel}
         userClick={userClick}
         userLevel={userLevel}
-        currentUser={currentUser}
       />
     </div>
   );

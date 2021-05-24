@@ -8,13 +8,15 @@ import styles from "./Register.module.scss";
 const Register = ({ setShowRegistry }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [inccorectName, setInccorectName] = useState(false);
+  const [inccorectMail, setInccorectMail] = useState(false);
+  const [inccorectPassword, setInccorectPassword] = useState(false);
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const newUser = {
       username: usernameRef.current.value.toUpperCase(),
       email: emailRef.current.value.toUpperCase(),
@@ -22,13 +24,29 @@ const Register = ({ setShowRegistry }) => {
     };
 
     try {
-      if (
-        newUser.username === "" ||
-        newUser.email === "" ||
-        newUser.password === ""
-      ) {
-        setError(true);
+      let isCorrect = true;
+      if (newUser.username.length < 3 || newUser.username === "") {
+        setInccorectName(true);
+        isCorrect = false;
       } else {
+        setInccorectName(false);
+        isCorrect = true;
+      }
+      if (newUser.email === "") {
+        setInccorectMail(true);
+        isCorrect = false;
+      } else {
+        setInccorectMail(false);
+        isCorrect = true;
+      }
+      if (newUser.password.length < 6 || newUser.password === "") {
+        setInccorectPassword(true);
+        isCorrect = false;
+      } else {
+        setInccorectPassword(false);
+        isCorrect = true;
+      }
+      if (isCorrect) {
         await request.post("/users/register", newUser);
         setError(false);
         setSuccess(true);
@@ -46,13 +64,16 @@ const Register = ({ setShowRegistry }) => {
       </p>
       <form onSubmit={handleSubmit}>
         <input autoFocus placeholder='nickname' ref={usernameRef} />
+        {inccorectName && <span>At least 3 characters</span>}
         <input type='email' placeholder='email' ref={emailRef} />
+        {inccorectMail && <span>Please enter a valid email</span>}
         <input
           type='password'
           min='6'
           placeholder='password'
           ref={passwordRef}
         />
+        {inccorectPassword && <span>At least 6 characters long</span>}
         <button type='submit'>Register</button>
       </form>
       {success && (

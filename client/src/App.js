@@ -24,8 +24,6 @@ function App() {
   const [userId, setUserId] = useState();
   const [userClick, setUserClick] = useState(myStorage.getItem("userClick"));
   const [userLevel, setUserLevel] = useState(myStorage.getItem("userLevel"));
-
-  // console.log(userData.data[0].level);
   // set start localstorage
   useEffect(() => {
     let countLocal = JSON.parse(localClick);
@@ -43,8 +41,6 @@ function App() {
     setAchievements(data);
   }, [localClick, myStorage, localLevel, userClick, currentUser, userLevel]);
 
-  const name = "arek";
-  console.log(name.charAt(0).toUpperCase() + name.slice(1));
   // set level
   useEffect(() => {
     const step = 10;

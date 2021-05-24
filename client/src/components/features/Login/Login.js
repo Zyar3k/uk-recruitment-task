@@ -6,14 +6,14 @@ import logo from "../../../assets/chocolate-splash.png";
 import styles from "./Login.module.scss";
 
 const Login = ({
-  setShowLogin,
-  setCurrentUser,
   myStorage,
-  setIsLogged,
+  setUserId,
   currentUser,
+  setCurrentUser,
+  setIsLogged,
+  setShowLogin,
   userClick,
   setUserClick,
-  setUserId,
   userLevel,
   setUserLevel,
 }) => {
@@ -84,7 +84,9 @@ const Login = ({
         />
         <button type='submit'>Login</button>
       </form>
-      {error && <p className={styles.failure}>Something went wrong!</p>}
+      {error && (
+        <p className={styles.failure}>Incorrect nickname or password</p>
+      )}
       <i
         className={`${styles.close} far fa-times-circle`}
         onClick={() => setShowLogin(false)}

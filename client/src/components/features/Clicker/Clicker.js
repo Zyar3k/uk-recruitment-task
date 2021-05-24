@@ -2,10 +2,10 @@ import chocoSplash from "../../../assets/chocolate-splash.png";
 import styles from "./Clicker.module.scss";
 
 const Clicker = ({
+  isLogged,
+  myStorage,
   localClick,
   setLocalClick,
-  myStorage,
-  isLogged,
   userClick,
   setUserClick,
 }) => {

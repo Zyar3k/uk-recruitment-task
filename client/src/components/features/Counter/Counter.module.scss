@@ -5,10 +5,8 @@
   font-family: $font-fancy;
   display: flex;
   flex-wrap: wrap;
-
   font-size: 40px;
   color: $choco-color;
-
   text-align: center;
 
   div {
@@ -21,11 +19,8 @@
     width: 100%;
     text-align: center;
     text-decoration: underline;
-    // text-transform: capitalize;
-
-    // .currUser {
-    // }
   }
+
   .score,
   .level {
     color: red;
