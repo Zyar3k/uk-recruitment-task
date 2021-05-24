@@ -29,7 +29,11 @@ const Counter = ({
         Level:
         <span className={styles.score}>{level}</span>
       </div>
-      {currentUser && <h4>Hello, {currentUser}!</h4>}
+      {currentUser && (
+        <h4>
+          Hello, <span className={styles.currUser}>{currentUser}</span>!
+        </h4>
+      )}
     </section>
   );
 };

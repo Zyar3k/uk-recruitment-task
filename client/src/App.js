@@ -25,6 +25,7 @@ function App() {
   const [userClick, setUserClick] = useState(myStorage.getItem("userClick"));
   const [userLevel, setUserLevel] = useState(myStorage.getItem("userLevel"));
 
+  // console.log(userData.data[0].level);
   // set start localstorage
   useEffect(() => {
     let countLocal = JSON.parse(localClick);
@@ -42,6 +43,8 @@ function App() {
     setAchievements(data);
   }, [localClick, myStorage, localLevel, userClick, currentUser, userLevel]);
 
+  const name = "arek";
+  console.log(name.charAt(0).toUpperCase() + name.slice(1));
   // set level
   useEffect(() => {
     const step = 10;
@@ -126,11 +129,11 @@ function App() {
       <div className={showRegistry || showLogin ? "modal" : null}>
         {showLogin && (
           <Login
+            setIsLogged={setIsLogged}
             myStorage={myStorage}
             currentUser={currentUser}
             setShowLogin={setShowLogin}
             setCurrentUser={setCurrentUser}
-            setIsLogged={setIsLogged}
             userClick={userClick}
             setUserClick={setUserClick}
             userLevel={userLevel}

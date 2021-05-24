@@ -1,6 +1,6 @@
-import axios from "axios";
-
 import { useState, useRef } from "react";
+
+import request from "../../../helpers/request";
 
 import logo from "../../../assets/chocolate-splash.png";
 import styles from "./Register.module.scss";
@@ -16,9 +16,9 @@ const Register = ({ setShowRegistry }) => {
     event.preventDefault();
 
     const newUser = {
-      username: usernameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      username: usernameRef.current.value.toUpperCase(),
+      email: emailRef.current.value.toUpperCase(),
+      password: passwordRef.current.value.toUpperCase(),
     };
 
     try {
@@ -29,7 +29,7 @@ const Register = ({ setShowRegistry }) => {
       ) {
         setError(true);
       } else {
-        await axios.post("/users/register", newUser);
+        await request.post("/users/register", newUser);
         setError(false);
         setSuccess(true);
       }

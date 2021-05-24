@@ -1,10 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 const userRoute = require("./routes/users");
+const PORT = process.env.PORT || 8800;
 
 dotenv.config();
+app.use(cors());
 app.use(express.json());
 
 mongoose
@@ -19,6 +22,8 @@ mongoose
 
 app.use("/api/users", userRoute);
 
-app.listen(8800, () => {
+app.listen(PORT, () => {
   console.log("It's amazing! Server is running!");
 });
+
+mongoose.set("useFindAndModify", false);

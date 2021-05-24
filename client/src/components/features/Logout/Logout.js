@@ -1,4 +1,4 @@
-import axios from "axios";
+import request from "../../../helpers/request";
 
 import styles from "./Logout.module.scss";
 
@@ -19,7 +19,7 @@ const Logout = ({
       clickCount: userClick,
     };
     try {
-      await axios.patch(`/users/${userId}`, updateUser);
+      await request.patch(`/users/${userId}`, updateUser);
     } catch (err) {
       console.log(err);
     }
