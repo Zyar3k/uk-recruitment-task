@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Switch, Route } from "react-router-dom";
-import { data } from "./db/achievments";
 
 import Header from "./components/layout/Header/Header";
 import Home from "./components/views/Home/Home";
@@ -9,21 +8,24 @@ import Achievements from "./components/views/Achievements/Achievements";
 import Login from "./components/features/Login/Login";
 import Register from "./components/features/Register/Register";
 
+import { StoreContext } from "./store/StoreProvider";
+
 function App() {
-  const myStorage = window.localStorage;
-  const [isLogged, setIsLogged] = useState(false);
-  const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
-  const [achievements, setAchievements] = useState([]);
-  // open close modal
-  const [showRegistry, setShowRegistry] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  // localcount
-  const [localClick, setLocalClick] = useState(myStorage.getItem("localClick"));
-  const [localLevel, setLocalLevel] = useState(myStorage.getItem("localLevel"));
-  // user
-  const [userId, setUserId] = useState();
-  const [userClick, setUserClick] = useState(myStorage.getItem("userClick"));
-  const [userLevel, setUserLevel] = useState(myStorage.getItem("userLevel"));
+  const {
+    showRegistry,
+    myStorage,
+    showLogin,
+    isLogged,
+    setIsLogged,
+    localClick,
+    localLevel,
+    setLocalClick,
+    setLocalLevel,
+    currentUser,
+    userClick,
+    userLevel,
+    setUserLevel,
+  } = useContext(StoreContext);
   // set start localstorage
   useEffect(() => {
     let countLocal = JSON.parse(localClick);
@@ -38,8 +40,17 @@ function App() {
       myStorage.setItem("userClick", userClick);
       myStorage.setItem("userLevel", userLevel);
     }
-    setAchievements(data);
-  }, [localClick, myStorage, localLevel, userClick, currentUser, userLevel]);
+  }, [
+    localClick,
+    myStorage,
+    localLevel,
+    userClick,
+    currentUser,
+    userLevel,
+    setIsLogged,
+    setLocalClick,
+    setLocalLevel,
+  ]);
 
   // set level
   useEffect(() => {
@@ -81,66 +92,22 @@ function App() {
   return (
     <>
       <div>
-        <Header
-          isLogged={isLogged}
-          myStorage={myStorage}
-          setIsLogged={setIsLogged}
-          setShowRegistry={setShowRegistry}
-          setShowLogin={setShowLogin}
-          userId={userId}
-          setCurrentUser={setCurrentUser}
-          userClick={userClick}
-          setUserClick={setUserClick}
-          userLevel={userLevel}
-          setUserLevel={setUserLevel}
-        />
+        <Header />
         <main className='widthContainer'>
           <Switch>
             <Route exact path='/'>
-              <Home
-                userId={userId}
-                isLogged={isLogged}
-                currentUser={currentUser}
-                myStorage={myStorage}
-                achievements={achievements}
-                localClick={localClick}
-                setLocalClick={setLocalClick}
-                localLevel={localLevel}
-                setLocalLevel={setLocalLevel}
-                userClick={userClick}
-                setUserClick={setUserClick}
-                userLevel={userLevel}
-                setUserLevel={setUserLevel}
-              />
+              <Home />
             </Route>
             <Route path='/achievements'>
-              <Achievements
-                isLogged={isLogged}
-                localClick={localClick}
-                userClick={userClick}
-                achievements={achievements}
-              />
+              <Achievements />
             </Route>
             <Route path='/shop' component={Shop} />
           </Switch>
         </main>
       </div>
       <div className={showRegistry || showLogin ? "modal" : null}>
-        {showLogin && (
-          <Login
-            setIsLogged={setIsLogged}
-            myStorage={myStorage}
-            currentUser={currentUser}
-            setShowLogin={setShowLogin}
-            setCurrentUser={setCurrentUser}
-            userClick={userClick}
-            setUserClick={setUserClick}
-            userLevel={userLevel}
-            setUserLevel={setUserLevel}
-            setUserId={setUserId}
-          />
-        )}
-        {showRegistry && <Register setShowRegistry={setShowRegistry} />}
+        {showLogin && <Login />}
+        {showRegistry && <Register />}
       </div>
     </>
   );

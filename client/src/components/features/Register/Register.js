@@ -1,11 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+
+import { StoreContext } from "../../../store/StoreProvider";
 
 import request from "../../../helpers/request";
 
 import logo from "../../../assets/chocolate-splash.png";
 import styles from "./Register.module.scss";
 
-const Register = ({ setShowRegistry }) => {
+const Register = () => {
+  const { setShowRegistry } = useContext(StoreContext);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [inccorectName, setInccorectName] = useState(false);

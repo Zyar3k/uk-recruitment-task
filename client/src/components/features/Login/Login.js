@@ -1,22 +1,26 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 
 import request from "../../../helpers/request";
 
 import logo from "../../../assets/chocolate-splash.png";
 import styles from "./Login.module.scss";
 
-const Login = ({
-  myStorage,
-  setUserId,
-  currentUser,
-  setCurrentUser,
-  setIsLogged,
-  setShowLogin,
-  userClick,
-  setUserClick,
-  userLevel,
-  setUserLevel,
-}) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const Login = () => {
+  const {
+    myStorage,
+    setShowLogin,
+    setIsLogged,
+    setUserId,
+    currentUser,
+    setCurrentUser,
+    userClick,
+    setUserClick,
+    userLevel,
+    setUserLevel,
+  } = useContext(StoreContext);
+
   const [error, setError] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -55,9 +59,11 @@ const Login = ({
         console.log(error);
       }
     };
-    if (currentUser) {
-      fetchUser();
-    }
+    return () => {
+      if (currentUser) {
+        fetchUser();
+      }
+    };
   }, [
     currentUser,
     myStorage,

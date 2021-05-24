@@ -1,14 +1,20 @@
+import { useContext } from "react";
+
 import chocoSplash from "../../../assets/chocolate-splash.png";
 import styles from "./Clicker.module.scss";
 
-const Clicker = ({
-  isLogged,
-  myStorage,
-  localClick,
-  setLocalClick,
-  userClick,
-  setUserClick,
-}) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const Clicker = () => {
+  const {
+    myStorage,
+    isLogged,
+    localClick,
+    setLocalClick,
+    userClick,
+    setUserClick,
+  } = useContext(StoreContext);
+
   const handleClick = () => {
     let countLocal = JSON.parse(localClick);
     if (isLogged) {

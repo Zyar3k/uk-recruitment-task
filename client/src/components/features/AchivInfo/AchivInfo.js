@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 
 import styles from "./AchivInfo.module.scss";
 
-const AchivInfo = ({ localClick, achievements, isLogged, userClick }) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const AchivInfo = () => {
+  const { achievements, isLogged, localClick, userClick } =
+    useContext(StoreContext);
   const [achivLevel, setAchivLevel] = useState(0);
   const [achivState, setAchivState] = useState(0);
   const [show, setShow] = useState(false);

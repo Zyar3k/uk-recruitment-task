@@ -5,9 +5,13 @@ import App from "./App";
 
 import "./styles/global.scss";
 
+import StoreProvider from "./store/StoreProvider";
+
 ReactDOM.render(
   <Router>
-    <App />
+    <StoreProvider>
+      <App />
+    </StoreProvider>
   </Router>,
   document.getElementById("root")
 );

@@ -1,17 +1,22 @@
+import { useContext } from "react";
 import request from "../../../helpers/request";
 
 import styles from "./Logout.module.scss";
 
-const Logout = ({
-  setIsLogged,
-  setCurrentUser,
-  myStorage,
-  userId,
-  userClick,
-  setUserClick,
-  userLevel,
-  setUserLevel,
-}) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const Logout = () => {
+  const {
+    myStorage,
+    setIsLogged,
+    userId,
+    setCurrentUser,
+    userClick,
+    setUserClick,
+    userLevel,
+    setUserLevel,
+  } = useContext(StoreContext);
+
   const handleLogout = async (e) => {
     e.preventDefault();
     const updateUser = {

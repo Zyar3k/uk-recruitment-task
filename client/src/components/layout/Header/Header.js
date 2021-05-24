@@ -1,23 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
+
+import { StoreContext } from "../../../store/StoreProvider";
 
 import Button from "../Button/Button";
 import Logout from "../../features/Logout/Logout";
 import styles from "./Header.module.scss";
 
-const Header = ({
-  isLogged,
-  userId,
-  setShowRegistry,
-  setShowLogin,
-  setIsLogged,
-  setCurrentUser,
-  myStorage,
-  userClick,
-  setUserClick,
-  userLevel,
-  setUserLevel,
-}) => {
+const Header = () => {
+  const { setShowRegistry, setShowLogin, isLogged } = useContext(StoreContext);
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -67,16 +58,7 @@ const Header = ({
         </ul>
         <div className={styles.userSection}>
           {isLogged ? (
-            <Logout
-              setIsLogged={setIsLogged}
-              setCurrentUser={setCurrentUser}
-              myStorage={myStorage}
-              setUserClick={setUserClick}
-              userClick={userClick}
-              userLevel={userLevel}
-              setUserLevel={setUserLevel}
-              userId={userId}
-            />
+            <Logout />
           ) : (
             <>
               <Button onClick={() => setShowLogin(true)}>Login</Button>

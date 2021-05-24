@@ -1,20 +1,25 @@
+import { useContext } from "react";
 import request from "../../../helpers/request";
+
 import styles from "./Counter.module.scss";
 
-const Counter = ({
-  isLogged,
-  myStorage,
-  currentUser,
-  localClick,
-  setLocalClick,
-  localLevel,
-  setLocalLevel,
-  userClick,
-  setUserClick,
-  userLevel,
-  setUserLevel,
-  userId,
-}) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const Counter = () => {
+  const {
+    myStorage,
+    isLogged,
+    localClick,
+    localLevel,
+    currentUser,
+    userClick,
+    userLevel,
+    setLocalClick,
+    setLocalLevel,
+    setUserClick,
+    setUserLevel,
+    userId,
+  } = useContext(StoreContext);
   let click;
   let level;
 
@@ -26,9 +31,7 @@ const Counter = ({
     level = localLevel;
   }
 
-
   const handleClick = async () => {
-
     if (!currentUser) {
       setLocalClick(0);
       setLocalLevel(1);
@@ -68,7 +71,7 @@ const Counter = ({
         </h4>
       )}
       <div className={styles.resetWrapper}>
-        Reset Counting:
+        Reset counter:
         <i
           onClick={() => handleClick()}
           className={`${styles.iconOff} fas fa-power-off`}

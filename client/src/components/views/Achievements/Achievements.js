@@ -1,6 +1,13 @@
+import { useContext } from "react";
+
 import styles from "./Achievements.module.scss";
 
-const Achievements = ({ localClick, achievements, isLogged, userClick }) => {
+import { StoreContext } from "../../../store/StoreProvider";
+
+const Achievements = () => {
+  const { achievements, isLogged, localClick, userClick } =
+    useContext(StoreContext);
+
   let click;
 
   if (isLogged) {

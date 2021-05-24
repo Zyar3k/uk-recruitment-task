@@ -61,12 +61,15 @@ body {
     }
 
     input:focus {
+      font-size: 20px;
       outline: none;
-      color: red;
+      color: $choco-color;
+      font-weight: bold;
       background-color: khaki;
     }
 
     button {
+      margin-top: 10px;
       border: none;
       padding: 10px;
       cursor: pointer;
