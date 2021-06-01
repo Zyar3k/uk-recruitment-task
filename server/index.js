@@ -4,14 +4,14 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 const userRoute = require("./routes/users");
-const PORT = process.env.PORT || 8800;
+const config = require("./config");
 
 dotenv.config();
 app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(config.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -22,7 +22,7 @@ mongoose
 
 app.use("/api/users", userRoute);
 
-app.listen(PORT, () => {
+app.listen(config.PORT, () => {
   console.log("It's amazing! Server is running!");
 });
 
