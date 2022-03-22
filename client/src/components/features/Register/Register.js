@@ -62,22 +62,22 @@ const Register = () => {
   return (
     <div className={styles.register}>
       <p className={styles.logo}>
-        <img src={logo} alt='chocolate-splash' />
+        <img src={logo} alt="chocolate-splash" />
         Splash Clicker
       </p>
       <form onSubmit={handleSubmit}>
-        <input autoFocus placeholder='nickname' ref={usernameRef} />
+        <input autoFocus placeholder="nickname" ref={usernameRef} />
         {inccorectName && <span>At least 3 characters</span>}
-        <input type='email' placeholder='email' ref={emailRef} />
+        <input type="email" placeholder="email" ref={emailRef} />
         {inccorectMail && <span>Please enter a valid email</span>}
         <input
-          type='password'
-          min='6'
-          placeholder='password'
+          type="password"
+          min="6"
+          placeholder="password"
           ref={passwordRef}
         />
         {inccorectPassword && <span>At least 6 characters long</span>}
-        <button type='submit'>Register</button>
+        <button type="submit">Register</button>
       </form>
       {success && (
         <p className={styles.success}>Successfull. You can login now!</p>

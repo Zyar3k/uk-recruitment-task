@@ -77,18 +77,18 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <p className={styles.logo}>
-        <img src={logo} alt='chocolate-splash' />
+        <img src={logo} alt="chocolate-splash" />
         Splash Clicker
       </p>
       <form onSubmit={handleSubmit}>
-        <input autoFocus placeholder='nickname' ref={usernameRef} />
+        <input autoFocus placeholder="nickname" ref={usernameRef} />
         <input
-          type='password'
-          min='6'
-          placeholder='password'
+          type="password"
+          min="6"
+          placeholder="password"
           ref={passwordRef}
         />
-        <button type='submit'>Login</button>
+        <button type="submit">Login</button>
       </form>
       {error && (
         <p className={styles.failure}>Incorrect nickname or password</p>
